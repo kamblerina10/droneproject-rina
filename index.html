@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone</title>
+
+    <style>
+        .drone_image {
+            animation: rotate 3s infinite;
+            transform-origin: 50% 50%;
+            transform-box: fill-box;
+            display: none;
+            position: relative;
+        }
+        body, html {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+        @media only screen and (min-width: 768px){
+            .container {
+                display: flex;
+            }
+            .right_sec form {
+                width: 100%;
+            }
+        }        
+        .item {
+            flex-basis: 33%;
+        }
+        .right_sec{
+            margin: 0 15px;
+        }
+        .btn_actions{
+            margin: 15px 0;
+            display: none;
+        }
+        .btn_actions button{
+            display: block;
+            width: 30%;
+            margin-bottom: 10px;
+        }
+        .right_sec form input {
+            width: 95%;
+            padding: 5px 8px;
+            margin-bottom: 2px;
+        }
+        .right_sec form {
+            border: 2px solid #dbdbdb;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        svg {
+            background-color: #a6ffa6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item2">
+            <svg xmlns="https://www.w3.org/2000/svg/" width="400" height="400" style="border: 2px solid black;" id="svg">
+                <image id="drone_image"  class="drone_image" href="images/drone.png" x="0" y="0" transform="rotate(0)" width="80" height="80" 
+                />
+            </svg>
+        </div>
+        <div class="item item2">
+            <div class="right_sec"> 
+                <p>Press Place button to start the Game </p>       
+                <p>Or Enter new x,y coordinates and direction for Drone</p>
+                <form>
+                    <input type="number" placeholder="Enter X position" value="0" name="xCord" id="xCord" min="0" max="320" /><br/><br/>
+                    <input type="number" placeholder="Enter Y position" value="0" name="yCord" id="yCord" min="0" max="320" /><br/><br/>
+                    <select id="dir_drone" name="dir_drone">
+                        <option>Select Drone Direction</option>
+                        <option value="east" selected>East</option>
+                        <option value="west">West</option>
+                        <option value="north">North</option>
+                        <option value="south">South</option>
+                    </select>
+                    <button type="button" id="placeBtn">Place</button>
+                </form>
+                <div class="btn_actions">            
+                    <button id="leftBtn">Left</button>
+                    <button id="rightBtn">Right</button>
+                    <button id="moveBtn">Move</button>
+                    <button id="attackBtn">Attack</button>
+                    <button id="reportBtn">Report</button>            
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+
+    <script src="scripts/droneSVG.js"></script>
+    
+</body>
+</html>
